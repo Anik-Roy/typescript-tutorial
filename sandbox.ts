@@ -1,35 +1,18 @@
-// let character: string;
-// let age: number;
-// let isLoggedIn: boolean;
-// let names: string[] = [];
-// names.push('anik');
-// console.log(names);
+let age: any = 25;
+age = {name: "anik"};
+console.log(age);
 
-// union types
-// let mixed: (string|number|boolean)[] = [];
-// mixed.push(20);
-// mixed.push('anik');
-// mixed.push(true);
-// console.log(mixed);
+// mixed type array
+let mixed: any[] = [];
+mixed.push(5);
+mixed.push('anik');
+mixed.push(true);
+console.log(mixed);
 
-// let my_obj: object;
-// my_obj = {name: 'anik', age: 24};
-// my_obj = {job: 'software engineer'};
-// console.log(my_obj);
-
-let my_obj2: {
-    name: string,
-    age: number,
-    job: string
-}
-
-my_obj2 = {
-    name: 'anik',
-    age: 24,
-    job: 'software engineer'
-}
-console.log(my_obj2);
-
-
-
+// mixed type object
+let mixed_obj: {name: any, age: any};
+mixed_obj = {name: 'anik', age: 24};
+console.log(mixed_obj);
+mixed_obj = {name: 20, age: 'anik'};
+console.log(mixed_obj);
 
