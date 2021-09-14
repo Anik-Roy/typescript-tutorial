@@ -1,9 +1,24 @@
 "use strict";
-const longDetails = (uid, item) => {
-    console.log(`${item} has a uid of ${uid}`);
+// let greet: Function;
+// example 1
+let greet;
+greet = (name, greetings) => {
+    console.log(`${name} says ${greetings}`);
 };
-const greet = (user) => {
-    console.log(`hello ${user.name}! your uid is ${user.uid}`);
+greet('anik', 'welcome');
+// example 2
+let calc;
+calc = (numberOne, numberTwo, action) => {
+    if (action === 'add') {
+        return numberOne + numberTwo;
+    }
+    return numberOne - numberTwo;
 };
-longDetails(1, 'android');
-greet({ name: 'anik', uid: "2" });
+let result = calc(10, 10, "add");
+console.log(result);
+// example 3
+let logDetails;
+logDetails = (ninja) => {
+    console.log(`${ninja.name} is ${ninja.age} years old.`);
+};
+logDetails({ name: "anik", age: 24 });
