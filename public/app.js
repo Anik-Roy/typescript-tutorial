@@ -61,15 +61,27 @@ const addUID = (obj) => {
 };
 let docThree = addUID({ name: "anik", age: 40 });
 console.log(docThree);
+// generics with interface
+// ENUMS
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["PROGRAMMER"] = 0] = "PROGRAMMER";
+    ResourceType[ResourceType["BOOK"] = 1] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 2] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 3] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 4] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 5] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+;
 const docFour = {
     uid: 1,
-    resourceName: 'person',
+    resourceName: ResourceType.PROGRAMMER,
     data: 'anik'
 };
 console.log(docFour);
 const docFive = {
     uid: 2,
-    resourceName: 'shoppingList',
+    resourceName: ResourceType.PERSON,
     data: ['shirt', 'pant']
 };
 console.log(docFive);
