@@ -71,46 +71,17 @@ const list = new ListTeamplate(ul);
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
+    let values: [string, string, number];
+    values = [tofrom.value, details.value, amount.valueAsNumber];
+
     let doc: HasFormatter;
     if(type.value === 'invoice') {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     } else {
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     list.render(doc, type.value, 'end');
 });
 
-// generics
-
-const addUID = <T extends object>(obj: T) => {
-    let uid = Math.floor(Math.random() * 100);
-    return {...obj, uid};
-}
-let docThree = addUID({name: "anik", age: 40});
-console.log(docThree);
-
-// generics with interface
-
-// ENUMS
-enum ResourceType {PROGRAMMER, BOOK, AUTHOR, FILM, DIRECTOR, PERSON};
-
-interface Resource<T> {
-    uid: number;
-    resourceName: ResourceType;
-    data: T;
-}
-
-const docFour: Resource<string> = {
-    uid: 1,
-    resourceName: ResourceType.PROGRAMMER,
-    data: 'anik'
-}
-console.log(docFour);
-
-const docFive: Resource<string[]> = {
-    uid: 2,
-    resourceName: ResourceType.PERSON,
-    data: ['shirt', 'pant']
-}
-console.log(docFive);
-
+// tuples
+let tup: [string, number, boolean] = ['hello', 40, true];

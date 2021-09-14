@@ -45,43 +45,16 @@ const ul = document.querySelector('ul');
 const list = new ListTeamplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === 'invoice') {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     list.render(doc, type.value, 'end');
 });
-// generics
-const addUID = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign({}, obj), { uid });
-};
-let docThree = addUID({ name: "anik", age: 40 });
-console.log(docThree);
-// generics with interface
-// ENUMS
-var ResourceType;
-(function (ResourceType) {
-    ResourceType[ResourceType["PROGRAMMER"] = 0] = "PROGRAMMER";
-    ResourceType[ResourceType["BOOK"] = 1] = "BOOK";
-    ResourceType[ResourceType["AUTHOR"] = 2] = "AUTHOR";
-    ResourceType[ResourceType["FILM"] = 3] = "FILM";
-    ResourceType[ResourceType["DIRECTOR"] = 4] = "DIRECTOR";
-    ResourceType[ResourceType["PERSON"] = 5] = "PERSON";
-})(ResourceType || (ResourceType = {}));
-;
-const docFour = {
-    uid: 1,
-    resourceName: ResourceType.PROGRAMMER,
-    data: 'anik'
-};
-console.log(docFour);
-const docFive = {
-    uid: 2,
-    resourceName: ResourceType.PERSON,
-    data: ['shirt', 'pant']
-};
-console.log(docFive);
+// tuples
+let tup = ['hello', 40, true];
